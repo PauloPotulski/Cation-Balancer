@@ -31,7 +31,18 @@
 <!-- Começo do bloco de conteudo -->
 <div class="container">
     <h1 class="text-center fw-light">Como jogar?</h1>
+    <h5 class="text-center my-5 lh-lg">Para jogar o jogo, precisamos entender o princípio sobre balanceamento químico!</h5>
+    <p class="text-center lh-lg">Para realizar um balanceamento, é necessário nivelar a quantidade de <a>atomos</a> presentes no <a href="#">reagente</a> e no <a href="#">produto</a></p>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></html>
+<div class="container">
+    <div class="list-group text-center lh-lg">
+        <h1 class="list-group-item"><a href="#">C</a><a href="#">6</a><a href="#">H</a><a href="#">12</a><a href="#">O</a><a href="#">6</a> → Reagente</h1>
+    </div>
+    <div class="list-group text-center lh-lg">
+        <h1 class="list-group-item"><a href="#">C</a><a href="#">2</a><a href="#">H</a><a href="#">6</a><a href="#">O</a> + <a href="#">C</a><a href="#">O</a><a href="#">2</a> → Produto</h1>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
