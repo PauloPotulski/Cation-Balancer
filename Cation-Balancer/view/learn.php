@@ -47,6 +47,42 @@
 
 <div class="container">
 <p class="text-center lh-lg mt-5">Note que essa equação está desbalanceada, o <a href="qtdAtomo">número de átomos</a> presentes no reagente e no produto são diferentes </p>
+<p class="text-center lh-lg mt-5">Para realizar o balanceamento, devemos estar atentos ao número de átomos de cada átomo presente, então faremos a esquematização dessa equação</p>
+</div>
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Átomo</th>
+      <th scope="col">Reagente</th>
+      <th scope="col">Produto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Carbono</th>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th scope="row">Hidrogênio</th>
+      <td>12</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th scope="row">Oxigênio</th>
+      <td>6</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="container">
+    <p class="text-center lh-lg mt-5">Agora com a esquematização podemos perceber o quão simples é balancear uma equação, sabendo que o número de átomos do <span class="fst-italic">reagente</span> precisa ser <span class="fw-bold">igual</span> ao número de átomos do <span class="fst-italic">produto.</span></p>
+    <p class="text-center lh-lg mt-5">Então podemos balancear essa equação adicionando um número antes da equação, esse número multiplicará <span class="fw-bold">todos</span> os átomos da equação (mas somente da equação, ele não multiplicará caso houver um sinal de + indicando outra equação, como é neste caso).</p>
+    
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
