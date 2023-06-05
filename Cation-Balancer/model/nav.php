@@ -1,5 +1,5 @@
 <!--navbar-->
-<header class="p-3 mb-3 border-bottom">
+<header class="p-3 mb-3 border-bottom position-relative">
   <div class="container">
     <!--imagem do site-->
     <div class="row justify-content-md-center">
@@ -12,7 +12,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="../view/index.php" class="nav-link px-2 link-secondary">Cation Balancer</a></li>
         </ul>
-        <div class="dropdown d-flex align-items-center">
+        <div class="dropdown d-flex align-items-center position-absolute end-0" style="margin-right:5%;">
           <img style="border-radius: 100%;" src="../static/img/foto_padrao_pefil_2.png" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="#">Entrar</a></li>
