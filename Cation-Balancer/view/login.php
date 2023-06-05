@@ -12,25 +12,25 @@
 <?php
   include("../model/nav.php");
 ?>
-
 <!-- Começo do bloco de conteudo -->
 <div class="container">
-  <h1 class="text-center fw-light">Bem vindo!</h1>
-</div>
-
-<div class="container">
-    <h5 class="text-center fw-light">Vamos começar!</h5>
-</div>
-
-<div class="container overflow-hidden mt-5">
-  <div class="row gx-5">
-    <div class="col-md p-5">
-     <div class="p-3 position-relative"><a href="learn.php" class="btn btn-danger position-absolute start-50 translate-middle">Aprender</a></div>
-    </div>
-    <div class="col-md p-5">
-      <div class="p-3 position-relative"><a href="play.php" class="btn btn-danger position-absolute start-50 translate-middle">Jogar</a></div>
-    </div>
+    <h2 class="fw-light text-center">Login</h2>
+    <form>
+  <div class="mb-3">
+    <label for="email" class="form-label">Endereço de Email</label>
+    <input type="email" placeholder="ex: gatinho.quimico@ifpr.edu.gov.br" class="form-control" id="email" aria-describedby="emailHelp">
+    <div id="hintEmail" class="form-text">Utilize seu melhor email!</div>
   </div>
+  <div class="mb-3">
+    <label for="senha" class="form-label">Password</label>
+    <input type="password" class="form-control" id="senha">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></html>
 </body>
