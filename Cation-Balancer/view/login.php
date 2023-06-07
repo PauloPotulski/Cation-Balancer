@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <?php
     include("../model/nav.php");
     ?>
