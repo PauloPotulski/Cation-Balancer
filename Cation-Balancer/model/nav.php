@@ -16,7 +16,7 @@
           <img style="border-radius: 100%;" src="../static/img/foto_padrao_pefil_2.png" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="../view/login.php">Entrar</a></li>
-            <li><a class="dropdown-item" href="#">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="../view/signup.php">Cadastrar</a></li>
             <li><a class="dropdown-item" href="#">Feedback</a></li>
           </ul>
       </div>
