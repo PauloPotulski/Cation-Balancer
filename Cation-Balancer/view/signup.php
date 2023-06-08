@@ -1,3 +1,10 @@
+<?php
+session_start();
+#verifica se existe um nome na sessão, se houver, o software direciona para o index, senão, não
+if (array_key_exists("nome_usuario", $_SESSION) == true) {
+    header("Location: index.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

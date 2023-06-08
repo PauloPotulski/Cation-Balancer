@@ -1,7 +1,7 @@
 <?php
 include("conexao.php");
 $erros = 0;
-#o método mysqli_real_escape_string é responsável por recuperar a string do envio através do post 
+#o método mysqli_real_escape_string é responsável por validar se a string é advinda de um ataque de sql injection
 $nome = mysqli_real_escape_string($conexao, Trim($_POST['nome']));
 
 #se o nome não conter mais de 2 letras, o sistema não liberará o cadastro 
