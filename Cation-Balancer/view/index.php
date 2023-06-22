@@ -1,3 +1,9 @@
+<?php 
+  session_start();
+  if(array_key_exists("nome_usuario", $_SESSION) == false){
+    session_destroy();
+  }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +20,6 @@
   <?php
   include("../model/nav.php");
   ?>
-
   <!-- Começo do bloco de conteudo -->
   <div class="container">
     <h1 class="text-center fw-light">Bem vindo!</h1>

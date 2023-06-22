@@ -17,7 +17,6 @@
               type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <?php
-              session_start();
               #verifica se existe um nome na sessão, se houver, ele mostra, senão, ele não mostra
               if (array_key_exists("nome_usuario", $_SESSION) == true) {
                   echo '<li><a class="dropdown-item" href="#">Olá, '.$_SESSION['nome_usuario'].'</a></li>

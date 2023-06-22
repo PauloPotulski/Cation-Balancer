@@ -1,3 +1,9 @@
+<?php 
+  session_start();
+  if(array_key_exists("nome_usuario", $_SESSION) == false){
+    session_destroy();
+  }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
