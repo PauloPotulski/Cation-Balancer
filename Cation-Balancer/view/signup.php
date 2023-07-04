@@ -27,7 +27,8 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
     <div class="container">
         <?php
         if (isset($_GET['success']) and $_GET['success'] == "true") {
-            echo "<dialog open class='border rounded'>
+            echo "<dialog open id='dialogo' class='border rounded'>
+            <button onclick='fechar()' type='button' class='float-end btn-close' aria-label='Close'></button>
                 <h3 class='fw-light text-center'>Cadastrado com sucesso!</h3>
                 <hr>
                 <div class='text-center'><a href='login.php'>Fazer Login</a></div>
@@ -82,7 +83,10 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-</html>
 </body>
-
+<script>
+    function fechar(){
+        document.getElementById('dialogo').style.display = 'none';
+    }
+</script>
 </html>
