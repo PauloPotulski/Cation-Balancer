@@ -18,6 +18,13 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
 </head>
 
 <body>
+<?php
+      if(isset($_GET['erro']) and $_GET['erro'] == "1"){
+        echo "<div id='erro' style='background:red;' class='container-fluid text-center p-2'>Você precisa preencher todos os campos!
+        <button onclick='fechar()' type='button' class='float-end btn-close' aria-label='Close'></button>
+        </div>";
+      }
+    ?>
   <?php
   include("../model/nav.php");
   ?>
@@ -28,10 +35,10 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
     <h4 class="text-center fw-light">Nível: <a href="#">iniciante</a> - 100 pontos</h4>
     
     
-    <form class="text-center lh-lg mt-5" method="get">
+    <form class="text-center lh-lg mt-5" action='../controller/validar_resposta.php'>
       <div class="row row-cols-5 justify-content-center">
         <div class="col" style="width:7%;">
-          <input type="number" class="form-control">
+          <input name="resposta_reagente" type="number" id="resposta_reagente" class="form-control">
         </div>
         <div class="col text-start">
           <label class="form-label">
@@ -47,7 +54,7 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
           <h1>-></h1>
         </div>
         <div class="col" style="width:7%;">
-          <input type="number" class="form-control border">
+          <input type="number" name="resposta_produto" class="form-control border">
         </div>
         <div class="col text-start">
           <label class="form-label">
@@ -75,7 +82,12 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl)
-  })
+})
+</script>
+<script>
+function fechar(){
+    document.getElementById("erro").style.display = 'none';
+  }
 </script>
 
 </html>
