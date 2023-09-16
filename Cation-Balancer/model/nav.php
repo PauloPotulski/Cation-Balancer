@@ -19,7 +19,7 @@
               <?php
               #verifica se existe um nome na sessão, se houver, ele mostra, senão, ele não mostra
               if (array_key_exists("nome_usuario", $_SESSION) == true) {
-                  echo '<li><a class="dropdown-item" href="#">Olá, '.$_SESSION['nome_usuario'].'</a></li>
+                  echo '<li><a class="dropdown-item" href="../view/perfil.php">Olá, '.$_SESSION['nome_usuario'].'</a></li>
                   <li><a class="dropdown-item" href="#">Rank</a></li>
                   <li><a class="dropdown-item" href="#">Feedback</a></li>
                   <li><a class="dropdown-item" href="../controller/logout.php">Sair</a></li>';

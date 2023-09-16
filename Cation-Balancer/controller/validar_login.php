@@ -1,7 +1,9 @@
 <?php
-session_destroy();
-session_start();
 include("conexao.php");
+if(isset($_SESSION) and isset($_SESSION['email'])){
+    session_destroy();
+}
+session_start();
 $erros = 0;
 $email = mysqli_real_escape_string($conexao, Trim($_POST['email']));
 #filtra o email, se a string não for email, retorna false
@@ -24,6 +26,9 @@ if ($erros == 0) {
         $_SESSION = $usuario;
         header("Location: ../view/index.php");
     }
+}
+else{
+    header("Location: ../view/login.php");
 }
 
 $conexao->close();

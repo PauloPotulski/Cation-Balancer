@@ -16,19 +16,19 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
   <title>Página Inicial</title>
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
-
 <body>
 <?php
       if(isset($_GET['erro']) and $_GET['erro'] == "1"){
-        echo "<div id='erro' style='background:red;' class='container-fluid text-center p-2'>Você precisa preencher todos os campos!
+        echo "<div id='erro' style='background:red;' class='container-fluid text-center p-2 erroVindo'>Você precisa preencher todos os campos!
         <button onclick='fechar()' type='button' class='float-end btn-close' aria-label='Close'></button>
         </div>";
       }
     ?>
   <?php
   include("../model/nav.php");
+  if(isset($_GET['status']) and $_GET['status'] == "derrota"){
+    echo '';}
   ?>
-
   <!-- Começo do bloco de conteudo -->
   <div class="container position-relative">
     <h3 class="text-center fw-light">Questão 1</h3>
@@ -71,11 +71,9 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
         <button type="submit" class="w-25 btn btn-dark">Enviar</button>
       </div>
     </form>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
-
 </html>
 <script type="text/javascript">
   // ativar o popper (biblioteca para o titulo do botao)
@@ -85,12 +83,10 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
 })
 </script>
 <script>
-function fechar(){
-    document.getElementById("erro").style.display = 'none';
-  }
+setTimeout(function(){
+  document.getElementById("erro").style.display='none';
+}, 5000)
 </script>
-
 </html>
 </body>
-
 </html>

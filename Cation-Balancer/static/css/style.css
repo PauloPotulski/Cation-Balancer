@@ -8,3 +8,30 @@
 a{
     text-decoration: none;
 }
+
+.erroVindo{
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from {
+      margin-top: -4%;
+    }
+  
+    to {
+      margin-top: 0%;
+    }
+  }
+.erroSaindo{
+    animation-duration: 1s;
+    animation-name: slideout;
+}
+@keyframes slideout {
+    from {
+      margin-top: 0%;
+    }
+  
+    to {
+      margin-top: -4%;
+    }
+  }
