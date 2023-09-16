@@ -35,3 +35,32 @@ a{
       margin-top: -4%;
     }
   }
+
+  .picture_input{
+    display: none;
+  }
+  .picture{
+    width: 300px;
+    aspect-ratio: 16/9;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#aaa;
+    border: dashed 2px currentColor;
+    cursor: pointer;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  }
+.picture:hover{
+  color: #0d6efd;
+  background-color: azure;
+}
+.picture:active{
+  color: turquoise;
+  background-color: turquoise;
+
+}
+.foto_perfil_config{
+  max-width: 100%;
+  object-fit: cover;
+}

@@ -29,7 +29,6 @@
                 <li><a class="dropdown-item" href="#">Feedback</a></li>';
               }
               ?>
-
             </ul>
           </div>
         </div>
