@@ -5,11 +5,13 @@ function abrir_menu() {
         document.getElementById("informacoes").style.display = 'block';
         document.getElementById("rank").style.display = 'block';
         document.getElementById("sobre").style.display = 'block';
+        document.getElementById("logout").style.display = 'block';
     }
     else {
         document.getElementById("informacoes").style.display = 'none';
         document.getElementById("rank").style.display = 'none';
         document.getElementById("sobre").style.display = 'none';
+        document.getElementById("logout").style.display = 'none';
     }
 
 }
@@ -25,6 +27,7 @@ if (navigator.userAgent.match(/Android/i)
     document.getElementById("informacoes").style.display = 'none';
     document.getElementById("rank").style.display = 'none';
     document.getElementById("sobre").style.display = 'none';
+    document.getElementById("logout").style.display = 'none';
 }
 
 function trocar_menu_inf(){
@@ -64,4 +67,3 @@ inputFile.addEventListener('change', function(e){
     }
 });
 
-// sessão de clicar para alterar as informações
