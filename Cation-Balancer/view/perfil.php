@@ -17,44 +17,53 @@ if (!isset($_SESSION['nome_usuario'])) {
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
     <style>
-        
-  .picture_input{
-    display: none;
-  }
-  .picture{
-    width: 300px;
-    aspect-ratio: 16/9;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color:#aaa;
-    border: dashed 2px currentColor;
-    cursor: pointer;
-    transition: color 300ms ease-in-out, background 300ms ease-in-out;
-  }
-.picture:hover{
-  color: #0d6efd;
-  background-color: azure;
-}
-.picture:active{
-  color: turquoise;
-  background-color: turquoise;
+        .picture_input {
+            display: none;
+        }
 
-}
-.foto_perfil_config{
-  max-width: 100%;
-  object-fit: cover;
-}
-        </style>
-        
+        .picture {
+            width: 300px;
+            aspect-ratio: 16/9;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            border: dashed 2px currentColor;
+            cursor: pointer;
+            transition: color 300ms ease-in-out, background 300ms ease-in-out;
+        }
+
+        .picture:hover {
+            color: #0d6efd;
+            background-color: azure;
+        }
+
+        .picture:active {
+            color: turquoise;
+            background-color: turquoise;
+
+        }
+
+        .foto_perfil_config {
+            max-width: 100%;
+            object-fit: cover;
+        }
+    </style>
+
 </head>
 
 <body>
+
     <?php
     include("../model/nav.php");
     ?>
     <div class="container">
+        <?php
+        if (isset($_GET) and $_GET['erro'] == 'nomeinvalido') {
+            echo '<div class="alert alert-danger text-center" role="alert">Digite um nome válido<button type="button" class="btn-close float-end" aria-label="Close"></button></div>';
+        }
+        ?>
         <div class="row">
             <div class="text-center list-group col">
                 <li class="list-group-item list-group-item-action active" aria-current="true">Menu<img
@@ -79,17 +88,22 @@ if (!isset($_SESSION['nome_usuario'])) {
                         <span class="picture_image"></span>
                     </label>
                     <p><span class="fw-bold">Nome:</span> <span id="edit_nome">
-                        <?php echo $_SESSION["nome_usuario"] ?></span>
-                        <img src="../static/img/editar.png" onclick="edit_nome()" style="cursor: pointer;" class="ms-2 imagem_editar1" width="25px">
+                            <?php echo $_SESSION["nome_usuario"] ?>
+                        </span>
+                        <img src="../static/img/editar.png" onclick="edit_nome()" style="cursor: pointer;"
+                            class="ms-2 imagem_editar1" width="24px">
                     </p>
                     <p><span class="fw-bold">Endereço de e-mail:</span>
-                        <span id="edit_email"><?php echo $_SESSION["email_usuario"] ?><img onclick="edit_email()" style="cursor:pointer;" src="../static/img/editar.png" class="ms-2 imagem_editar2"
-                            width="25px">
-                        </span></p>
+                        <span id="edit_email">
+                            <?php echo $_SESSION["email_usuario"] ?><img onclick="edit_email()" style="cursor:pointer;"
+                                src="../static/img/editar.png" class="ms-2 imagem_editar2" width="24px">
+                        </span>
+                    </p>
                     <p><span class="fw-bold">Telefone:</span><span id="edit_tel">
-                        <?php echo $_SESSION["telefone_usuario"] ?><img onclick="edit_telefone()" style="cursor:pointer;" src="../static/img/editar.png" class="ms-2 imagem_editar3"
-                            width="25px">
-                    </span></p>
+                            <?php echo $_SESSION["telefone_usuario"] ?><img onclick="edit_telefone()"
+                                style="cursor:pointer;" src="../static/img/editar.png" class="ms-2 imagem_editar3"
+                                width="24px">
+                        </span></p>
                     <p><a href="#">Redefinir senha</a></p>
                     <button type="submit" class="btn btn-primary mb-3">Salvar</button>
                 </form>
@@ -105,19 +119,19 @@ if (!isset($_SESSION['nome_usuario'])) {
             //aqui é onde recupero o nome atual
             var x = document.getElementById("edit_nome").innerText;
             document.querySelector(".imagem_editar1").style.display = 'none';
-            document.getElementById("edit_nome").innerHTML = "<input id='nome' name='nome' type='text' class='form-control w-50 mt-2' placeholder='"+x+"'>";
+            document.getElementById("edit_nome").innerHTML = "<div class='position-relative'><input id='nome' name='nome' type='text' class='form-control w-50 mt-2 position-absolute top-0 start-0' placeholder='" + x + "'><img class='position-absolute mt-3 ms-2 start-50' src='../static/img/botao-cancelar.png' style='cursor:pointer;'></div>";
         }
-        function edit_email(){
+        function edit_email() {
             var x = document.getElementById("edit_email").innerText;
             document.querySelector('.imagem_editar2').style.display = 'none';
-            document.getElementById("edit_email").innerHTML = "<input id='email' name='email' type='text' class='form-control w-50 mt-2' placeholder='"+x+"'>";
+            document.getElementById("edit_email").innerHTML = "<input id='email' name='email' type='text' class='form-control w-50 mt-2' placeholder='" + x + "'>";
         }
-        function edit_telefone(){
+        function edit_telefone() {
             var x = document.getElementById("edit_tel").innerText;
             document.querySelector('.imagem_editar3').style.display = 'none';
             document.getElementById("edit_tel").innerHTML = "<input id='telefone' name='telefone' type='number' class='form-control w-50 mt-2' placeholder='Telefone'>";
-            
         }
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
