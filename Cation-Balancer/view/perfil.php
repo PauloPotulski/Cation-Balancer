@@ -16,7 +16,38 @@ if (!isset($_SESSION['nome_usuario'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+        
+  .picture_input{
+    display: none;
+  }
+  .picture{
+    width: 300px;
+    aspect-ratio: 16/9;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#aaa;
+    border: dashed 2px currentColor;
+    cursor: pointer;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  }
+.picture:hover{
+  color: #0d6efd;
+  background-color: azure;
+}
+.picture:active{
+  color: turquoise;
+  background-color: turquoise;
 
+}
+.foto_perfil_config{
+  max-width: 100%;
+  object-fit: cover;
+}
+        </style>
+        
 </head>
 
 <body>
@@ -41,7 +72,7 @@ if (!isset($_SESSION['nome_usuario'])) {
 
             <div class="col-md-9 container border rounded">
                 <div class="d-flex flex-row"></div>
-                <form>
+                <form method="post" action="../controller/validar_edicoes.php">
                     <legend class="text-center bg-primary text-white rounded" id="titulo">Informações</legend>
                     <label class="picture rounded float-md-end" tabindex="0">
                         <input type="file" accept="image/*" id="pic_input" class="picture_input">
@@ -49,16 +80,16 @@ if (!isset($_SESSION['nome_usuario'])) {
                     </label>
                     <p><span class="fw-bold">Nome:</span> <span id="edit_nome">
                         <?php echo $_SESSION["nome_usuario"] ?></span>
-                        <img src="../static/img/editar.png" onclick="edit_nome()" class="ms-2" width="25px">
+                        <img src="../static/img/editar.png" onclick="edit_nome()" style="cursor: pointer;" class="ms-2 imagem_editar1" width="25px">
                     </p>
                     <p><span class="fw-bold">Endereço de e-mail:</span>
-                        <?php echo $_SESSION["email_usuario"] ?><img src="../static/img/editar.png" class="ms-2"
+                        <span id="edit_email"><?php echo $_SESSION["email_usuario"] ?><img onclick="edit_email()" style="cursor:pointer;" src="../static/img/editar.png" class="ms-2 imagem_editar2"
                             width="25px">
-                    </p>
-                    <p><span class="fw-bold">Telefone:</span>
-                        <?php echo $_SESSION["telefone_usuario"] ?><img src="../static/img/editar.png" class="ms-2"
+                        </span></p>
+                    <p><span class="fw-bold">Telefone:</span><span id="edit_tel">
+                        <?php echo $_SESSION["telefone_usuario"] ?><img onclick="edit_telefone()" style="cursor:pointer;" src="../static/img/editar.png" class="ms-2 imagem_editar3"
                             width="25px">
-                    </p>
+                    </span></p>
                     <p><a href="#">Redefinir senha</a></p>
                     <button type="submit" class="btn btn-primary mb-3">Salvar</button>
                 </form>
@@ -73,9 +104,19 @@ if (!isset($_SESSION['nome_usuario'])) {
         function edit_nome() {
             //aqui é onde recupero o nome atual
             var x = document.getElementById("edit_nome").innerText;
+            document.querySelector(".imagem_editar1").style.display = 'none';
+            document.getElementById("edit_nome").innerHTML = "<input id='nome' name='nome' type='text' class='form-control w-50 mt-2' placeholder='"+x+"'>";
+        }
+        function edit_email(){
+            var x = document.getElementById("edit_email").innerText;
+            document.querySelector('.imagem_editar2').style.display = 'none';
+            document.getElementById("edit_email").innerHTML = "<input id='email' name='email' type='text' class='form-control w-50 mt-2' placeholder='"+x+"'>";
+        }
+        function edit_telefone(){
+            var x = document.getElementById("edit_tel").innerText;
+            document.querySelector('.imagem_editar3').style.display = 'none';
+            document.getElementById("edit_tel").innerHTML = "<input id='telefone' name='telefone' type='number' class='form-control w-50 mt-2' placeholder='Telefone'>";
             
-            var edit = document.getElementById("edit_nome").innerHTML = "<input type='text' class='form-control' >";
-            console.log(x);
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
