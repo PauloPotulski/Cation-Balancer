@@ -60,8 +60,15 @@ if (!isset($_SESSION['nome_usuario'])) {
     ?>
     <div class="container">
         <?php
-        if (isset($_GET) and $_GET['erro'] == 'nomeinvalido') {
-            echo '<div class="alert alert-danger text-center" role="alert">Digite um nome válido<button type="button" class="btn-close float-end" aria-label="Close"></button></div>';
+        if(array_key_exists("erro",$_GET)) {
+            if($_GET['erro'] == "preencher"){
+            echo '<div class="alert alert-danger text-center" id="erro-alerta" role="alert">Digite suas informações!<button type="button" class="btn-close float-end" aria-label="Close"></button></div>';
+            }
+        }
+        if(array_key_exists("erro",$_GET)) {
+            if($_GET['erro'] == "nomeinvalido"){
+            echo '<div class="alert alert-danger text-center" id="erro-alerta" role="alert">Digite um nome válido!<button type="button" class="btn-close float-end" aria-label="Close"></button></div>';
+            }
         }
         ?>
         <div class="row">
@@ -88,19 +95,19 @@ if (!isset($_SESSION['nome_usuario'])) {
                         <span class="picture_image"></span>
                     </label>
                     <p><span class="fw-bold">Nome:</span> <span id="edit_nome">
-                            <?php echo $_SESSION["nome_usuario"] ?>
-                        </span>
-                        <img src="../static/img/editar.png" onclick="edit_nome()" style="cursor: pointer;"
+                            <?php echo $_SESSION["nome_usuario"] ?><img src="../static/img/editar.png" onclick="editar_nome()" style="cursor: pointer;"
                             class="ms-2 imagem_editar1" width="24px">
+                        </span>
+                        
                     </p>
                     <p><span class="fw-bold">Endereço de e-mail:</span>
                         <span id="edit_email">
-                            <?php echo $_SESSION["email_usuario"] ?><img onclick="edit_email()" style="cursor:pointer;"
+                            <?php echo $_SESSION["email_usuario"] ?><img onclick="editar_email()" style="cursor:pointer;"
                                 src="../static/img/editar.png" class="ms-2 imagem_editar2" width="24px">
                         </span>
                     </p>
                     <p><span class="fw-bold">Telefone:</span><span id="edit_tel">
-                            <?php echo $_SESSION["telefone_usuario"] ?><img onclick="edit_telefone()"
+                            <?php echo $_SESSION["telefone_usuario"] ?><img onclick="editar_telefone()"
                                 style="cursor:pointer;" src="../static/img/editar.png" class="ms-2 imagem_editar3"
                                 width="24px">
                         </span></p>
@@ -115,23 +122,28 @@ if (!isset($_SESSION['nome_usuario'])) {
     </div>
     <script src="../static/js/script_perfil.js"></script>
     <script>
-        function edit_nome() {
+        function editar_nome() {
             //aqui é onde recupero o nome atual
             var x = document.getElementById("edit_nome").innerText;
             document.querySelector(".imagem_editar1").style.display = 'none';
-            document.getElementById("edit_nome").innerHTML = "<div class='position-relative'><input id='nome' name='nome' type='text' class='form-control w-50 mt-2 position-absolute top-0 start-0' placeholder='" + x + "'><img class='position-absolute mt-3 ms-2 start-50' src='../static/img/botao-cancelar.png' style='cursor:pointer;'></div>";
+            var tipo = "input_nome";
+            document.getElementById("edit_nome").innerHTML = "<div id='div_nome' class='input-group w-50'><input id='input_nome' name='nome' type='text' class='form-control  mt-2 top-0 start-0' placeholder='" + x + "'><img onclick='fechar_form("+tipo+", div_nome, edit_nome)' class='mt-3 ms-2' src='../static/img/botao-cancelar.png' style='cursor:pointer; width:25px; height:25px;'></div>";
         }
-        function edit_email() {
+        function editar_email() {
             var x = document.getElementById("edit_email").innerText;
             document.querySelector('.imagem_editar2').style.display = 'none';
             document.getElementById("edit_email").innerHTML = "<input id='email' name='email' type='text' class='form-control w-50 mt-2' placeholder='" + x + "'>";
         }
-        function edit_telefone() {
+        function editar_telefone() {
             var x = document.getElementById("edit_tel").innerText;
             document.querySelector('.imagem_editar3').style.display = 'none';
             document.getElementById("edit_tel").innerHTML = "<input id='telefone' name='telefone' type='number' class='form-control w-50 mt-2' placeholder='Telefone'>";
         }
-
+        function fechar_form(x, div_form, span_form){
+            console.log(span_form);
+            span_form.innerHTML = x.placeholder;
+            div_form.style.display = 'none';
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
