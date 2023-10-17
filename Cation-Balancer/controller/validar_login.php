@@ -26,10 +26,11 @@ if ($erros == 0) {
         $_SESSION = $usuario;
         header("Location: ../view/index.php");
     }
+    else{
+        header("Location: ../view/login.php?erro=true");
+    }
 }
-else{
-    header("Location: ../view/login.php");
-}
+
 
 $conexao->close();
 ?>

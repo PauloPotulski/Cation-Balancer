@@ -13,20 +13,36 @@
             <li><a href="../view/index.php" class="nav-link px-2 link-secondary">Cation Balancer</a></li>
           </ul>
           <div class="dropdown d-flex align-items-center position-absolute end-0" style="margin-right:5%;">
-            <img style="border-radius: 100%;" src="../static/img/foto_padrao_pefil_2.png" class="dropdown-toggle"
-              type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <?php
+              require("../controller/conexao.php");
+              if(isset($_SESSION["id_usuario"])){
+              $sql = "SELECT dir_foto FROM usuario WHERE id_usuario = ".$_SESSION['id_usuario']."";
+              $result = mysqli_query($conexao, $sql);
+              $row = mysqli_num_rows($result);
+              $foto = $result->fetch_assoc()['dir_foto'];
+              if($foto != null){
+                echo '<img width="40px" style="border-radius: 100%;" src="'.$foto.'" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">';
+              }
+              else{
+                echo '<img width="40px" style="border-radius: 100%;" src="../static/img/foto_padrao_pefil_2.png" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">';
+              }
+            }
+            else{
+
+              echo '<img width="40px" style="border-radius: 100%;" src="../static/img/foto_padrao_pefil_2.png" class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">';
+            }
+            ?>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <?php
               #verifica se existe um nome na sessão, se houver, ele mostra, senão, ele não mostra
               if (array_key_exists("nome_usuario", $_SESSION) == true) {
                   echo '<li><a class="dropdown-item" href="../view/perfil.php">Olá, '.$_SESSION['nome_usuario'].'</a></li>
                   <li><a class="dropdown-item" href="#">Rank</a></li>
-                  <li><a class="dropdown-item" href="#">Feedback</a></li>
+                  <li><a class="dropdown-item" href="feedback_usuario.php">Feedback</a></li>
                   <li><a class="dropdown-item" href="../controller/logout.php">Sair</a></li>';
               } else {
                 echo '<li><a class="dropdown-item" href="../view/login.php">Entrar</a></li>
-                <li><a class="dropdown-item" href="../view/signup.php">Cadastrar-se</a></li>
-                <li><a class="dropdown-item" href="#">Feedback</a></li>';
+                <li><a class="dropdown-item" href="../view/signup.php">Cadastrar-se</a></li>';
               }
               ?>
             </ul>

@@ -30,13 +30,6 @@ if (navigator.userAgent.match(/Android/i)
     document.getElementById("logout").style.display = 'none';
 }
 
-function trocar_menu_inf(){
-    document.getElementById("titulo").innerHTML = "Informações";
-}
-function trocar_menu_rank(){
-    document.getElementById("titulo").innerHTML = "Rank";
-}
-
 // sessão da imagem de perfil "input"
 
 const inputFile = document.querySelector('#pic_input');

@@ -22,6 +22,9 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
 <body>
     <?php
     include("../model/nav.php");
+    if(isset($_GET['erro']) and $_GET['erro'] == 'true'){
+        echo '<div class="alert alert-danger text-center" role="alert">Email ou senha incorretos</div>';
+    }
     ?>
     <!-- Começo do bloco de conteudo -->
     <div class="container">
@@ -57,7 +60,7 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
                     <div class="text-center">
                         <button type="submit" class="btn btn-dark" style="width:100%;">Login</button>
                     </div>
-                    <div class="mt-3"><a href="#">Esqueci minha senha.</a></div>
+                    <div class="mt-3"><a href="../view/rec_senha.php">Esqueci minha senha.</a></div>
                 </form>
             </div>
         </div>
