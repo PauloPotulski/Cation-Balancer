@@ -12,6 +12,7 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Página Inicial</title>
@@ -38,6 +39,13 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
 
         <div class="row align-items-center">
             <div class="col-md-10 mx-auto col-lg-5">
+                <?php
+                if (isset($_GET["email"]) and $_GET["email"] == "cadastrado") {
+                    echo '<div class="alert alert-danger text-center" role="alert">
+                    O email já está cadastrado!
+                  </div>';
+                }
+                ?>
                 <h2 class="fw-light text-center">Cadastrar-se</h2>
                 <form action="../controller/validar_cadastro.php" method="post">
                     <div class="mb-3">
@@ -85,8 +93,9 @@ if (array_key_exists("nome_usuario", $_SESSION) == true) {
 
 </body>
 <script>
-    function fechar(){
+    function fechar() {
         document.getElementById('dialogo').style.display = 'none';
     }
 </script>
+
 </html>

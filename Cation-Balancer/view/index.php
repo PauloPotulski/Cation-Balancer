@@ -11,9 +11,7 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-
-  </style>
+  <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <title>Página Inicial</title>
@@ -55,9 +53,9 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
           <div class="modal-body">
             <div class="list-group">
               <a href="play.php?modo=iniciante" class="list-group-item list-group-item-action">Iniciante</a>
-              <a href="play.php?modo=aprendiz" class="list-group-item list-group-item-action">Aprendiz</a>
-              <a href="play.php?modo=avancado" class="list-group-item list-group-item-action">Avançado</a>
-              <a href="play.php?modo=doutor" class="list-group-item list-group-item-action">Doutor</a>
+              <a href="#" class="list-group-item list-group-item-action">Aprendiz</a>
+              <a href="#" class="list-group-item list-group-item-action">Avançado</a>
+              <a href="#" class="list-group-item list-group-item-action">Doutor</a>
             </div>
           </div>
         </div>

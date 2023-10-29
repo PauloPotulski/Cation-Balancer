@@ -11,6 +11,7 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon">
   <style>
 
   </style>
@@ -36,14 +37,24 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
           <th scope="col">Razão</th>
           <th scope="col">Feedback</th>
           <th scope="col">Data</th>
+          <th scope="col">Email</th>
         </tr>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
+          <?php
+          include("../controller/conexao.php");
+          $sql = "SELECT * FROM feedback";
+          $result = mysqli_query($conexao, $sql);
+          while($row = mysqli_fetch_assoc($result) ) {
+            echo "<tr>";
+            echo "<td>".$row["id"]."</td>";
+            echo "<td>".$row["razao"]."</td>";
+            echo "<td>".wordwrap($row["texto"], 30, "\n", true)."</td>";
+            echo "<td>".date("d/m/y",strtotime($row["data_envio"]))."</td>";
+            echo "<td>".$row["email"]."</td>";
+            echo "</tr>";
+          }
+          ?>
       </tbody>
       </thead>
     </table>

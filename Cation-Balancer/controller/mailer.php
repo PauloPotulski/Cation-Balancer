@@ -24,8 +24,8 @@ try{
 
     //Conteudo
     $mail->charset = "UTF-8";
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Redefinição de senha para '.$email.'';
+    $mail->isHTML(true);                                 
+    $mail->Subject = mb_encode_mimeheader('Redefinição de senha para '.$email.'');
     $mail->Body = 'Clique <a href="../view/redefinicao_senha.php?token='.$token_hash.'">aqui</a> para redefinir sua senha';
     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 }

@@ -20,13 +20,20 @@ if (strlen($senha) < 6) {
     header("Location: ../view/signup.php?erro=senhainvalida");
     $erros++;
 }
-#se nao existirem erros, o usuario é cadastrado
-if ($erros == 0) {
-    $sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) Values('$nome', '$email', '$senha');";
-    if ($conexao->query($sql) === TRUE) {
-        header("Location: ../view/signup.php?success=true");
+$sql = "SELECT * from usuario where email_usuario = '$email';";
+if(mysqli_num_rows(mysqli_query($conexao, $sql)) == 0) {
+#se nao existirem erros e o email nao estiver cadastrado, o usuario é cadastrado
+    if ($erros == 0) {
+        $sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) Values('$nome', '$email', '$senha');";
+        if ($conexao->query($sql) === TRUE) {
+            header("Location: ../view/signup.php?success=true");
+        }
     }
 }
+else{
+    header("Location: ../view/signup.php?email=cadastrado");
+}
+
 
 $conexao->close();
 ?>

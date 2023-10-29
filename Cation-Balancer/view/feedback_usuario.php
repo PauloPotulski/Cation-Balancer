@@ -11,6 +11,7 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/img/icone.png" type="image/x-icon">
     <style>
 
     </style>
@@ -39,57 +40,75 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
     ?>
     <!-- Começo do bloco de conteudo -->
     <div class="container w-50 ">
+        <?php
+        if (isset($_GET['sucesso']) and $_GET['sucesso'] == "true") {
+            echo '<div class="alert alert-success alert-dismissible" role="alert">Feedback enviado com sucesso!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+        }
+        ?>
         <h3 class="fw-light text-center">Enviar feedback para o desenvolvedor</h3>
-        <form>
+        <form action="../controller/validar_feedback.php" method="post">
             <div class="mb-3">
                 <label class="form-label mt-4">Selecione a razão do feedback</label>
-                <select id="select" class="form-select">
-                    <option id="ocultar" selected>Selecione uma opção.</option>
+                <select id="select" name="razao" class="form-select">
+                    <option id="ocultar" value="invalido" selected>Selecione uma opção.</option>
                     <option value="bug">Bug</option>
                     <option value="sugestao">Sugestão</option>
                     <option value="critica">Crítica</option>
                     <option value="outro">Outro</option>
                 </select>
-                <input id="outro" style="display:none;" type="text" name="outro" placeholder="Digite aqui a razão para o feedback" class="form-control mt-2">
+                <input id="outro" style="display:none;" type="text" name="outro"
+                    placeholder="Digite aqui a razão para o feedback" class="form-control mt-2">
+                <?php
+                if (isset($_GET["razao"]) and $_GET["razao"] == "invalida") {
+                    echo '<p class="text-danger">Selecione uma razão válida</p>';
+                }
+
+                ?>
             </div>
             <div class="mb-3">
                 <label class="form-label">Feedback</label>
-                <textarea id="text-area" type="text" class="form-control" maxlength="500" style="height:150px;"></textarea>
+                <textarea id="text-area" name="texto" type="text" class="form-control" maxlength="500"
+                    style="height:150px;"></textarea>
                 <div id="quantidade" class="text-end"><span id="qtd">0</span>/500</div>
+                <?php
+                if (isset($_GET['texto']) and $_GET['texto'] === 'invalido') {
+                    echo '<p class="text-danger">Digite um texto válido</p>';
+                }
+                ?>
             </div>
             <div class="text-center"><button type="submit" class="botao w-100">Enviar</button></div>
         </form>
     </div>
 
     <script>
-        var select  = document.getElementById("select");
-        select.addEventListener("click", function(){
-            if(select.value == "outro"){
+        var select = document.getElementById("select");
+        select.addEventListener("click", function () {
+            if (select.value == "outro") {
                 document.getElementById("outro").style.display = "block";
             }
-            if(select.value != "outro"){
+            if (select.value != "outro") {
                 document.getElementById("outro").style.display = "none";
             }
-            if(select.value != "Selecione uma opção."){
+            if (select.value != "Selecione uma opção.") {
                 document.getElementById("ocultar").setAttribute("disabled", "disabled");
             }
         });
-        
+
         var text_area = document.getElementById("text-area");
-        text_area.addEventListener("input", function(){
+        text_area.addEventListener("input", function () {
             const texto = text_area.value;
             const numero = texto.length;
             document.getElementById("qtd").innerHTML = numero;
-            if(numero >= 500){
+            if (numero >= 500) {
                 document.getElementById("quantidade").style.color = "red";
-                text_area.ariaReadOnly =true;
+                text_area.ariaReadOnly = true;
             }
-            else{
+            else {
                 document.getElementById("quantidade").style.color = "black";
-                text_area.ariaReadOnly =false;
+                text_area.ariaReadOnly = false;
             }
         });
-        
+
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
