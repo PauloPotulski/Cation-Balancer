@@ -76,73 +76,13 @@ if (array_key_exists("nome_usuario", $_SESSION) == false) {
       <p class="text-center mt-5 mb-0">Você pode <a href="../controller/continuar.php">continuar</a> ou ir ao <a href="index.php">menu principal</a>.</p>
     </div>');
     }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota1") {
+    if (isset($_GET['status']) and $_GET['status'] == "derrota") {
       $numero = mt_rand(1, 4);
       die('<div class="container">
       <h1 class="fw-light text-center">Opss!!</h1>
       <p class="text-center">Ah não! você errou!</p>
       <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você não balanceou as equações e as ligações não estão coerentes.</p>
-      <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
-    </div>');
-    }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota2") {
-      $numero = mt_rand(1, 4);
-      die('<div class="container">
-      <h1 class="fw-light text-center">Opss!!</h1>
-      <p class="text-center">Ah não! você errou!</p>
-      <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você não balanceou as equações e as ligações do produto estão desiguais, porém conseguiu igualar as ligações do reagente.</p>
-      <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
-    </div>');
-    }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota3") {
-      $numero = mt_rand(1, 4);
-      die('<div class="container">
-      <h1 class="fw-light text-center">Opss!!</h1>
-      <p class="text-center">Ah não! você errou!</p>
-      <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você não balanceou as equações e as ligações do reagente estão desiguais, porém conseguiu igualar as ligações do produto.</p>
-      <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
-    </div>');
-    }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota4") {
-      $numero = mt_rand(1, 4);
-      die('<div class="container">
-      <h1 class="fw-light text-center">Opss!!</h1>
-      <p class="text-center">Ah não! você errou!</p>
-      <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você não balanceou as equações, porém conseguiu igualar as ligações do reagente e do produto.</p>
-      <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
-    </div>');
-    }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota5") {
-      $numero = mt_rand(1, 4);
-      die('<div class="container">
-      <h1 class="fw-light text-center">Opss!!</h1>
-      <p class="text-center">Ah não! você errou!</p>
-      <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você balanceou as equações e igualou as as ligações do reagente, porém não igualou as ligações do produto.</p>
-      <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
-    </div>');
-    }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota6") {
-      $numero = mt_rand(1, 4);
-      die('<div class="container">
-      <h1 class="fw-light text-center">Opss!!</h1>
-      <p class="text-center">Ah não! você errou!</p>
-      <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você balanceou as equações e igualou as as ligações do produto, porém não igualou as ligações do reagente.</p>
-      <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
-    </div>');
-    }
-    if (isset($_GET['status']) and $_GET['status'] == "derrota7") {
-      $numero = mt_rand(1, 4);
-      die('<div class="container">
-      <h1 class="fw-light text-center">Opss!!</h1>
-      <p class="text-center">Ah não! você errou!</p>
-      <img class="mx-auto d-block" src="../static/img/gato-triste' . $numero . '.png">
-      <p class="text-center mt-5 mb-0">Você balanceou as equações e igualou as as ligações do produto, porém não igualou as ligações do reagente.</p>
+      <p class="text-center mt-5 mb-0">Você não balanceou as equações</p>
       <p class="text-center ">Mas não fique triste, você pode <a href="../controller/continuar.php">tentar de novo</a>, ou ir ao <a href="index.php">menu principal.</a></p>
     </div>');
     }

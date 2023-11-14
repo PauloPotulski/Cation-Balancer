@@ -42,11 +42,12 @@ function guardar_vetor()
         'resposta_produto' => $resposta_produto
     );
 }
-function validar_vetor($vetor){
-    foreach($vetor as $chave => $valor){
-        if($valor == ""){
+function validar_vetor($vetor)
+{
+    foreach ($vetor as $chave => $valor) {
+        if ($valor == "") {
             $novaUrl = limpar_get();
-            header('Location: '.$novaUrl.'&erro=1');
+            header('Location: ' . $novaUrl . '&erro=1');
             exit;
         }
     }
@@ -93,80 +94,18 @@ foreach ($produto as $chave => $valorProduto) {
 echo "resultado reagente -> ";
 print_r($resultado_reagente);
 echo "<br>resultado produto -> ";
-print_r($resultado_produto);echo "<br><br><br>";
+print_r($resultado_produto);
+echo "<br><br><br>";
 
-//aqui estarei fazendo a validação das ligações dos atomos
-$validador = new validadorAtomo();
-$resLigacoes = array();
-$i = 0;
-foreach ($resultado_reagente as $chave => $valor){
-    $atomo = $chave;
-    $ligacoes = $validador->validarAtomo($atomo);
-    $resLigacoes[$i] = $ligacoes*$valor;
-    echo "O atomo $atomo tem ".$ligacoes." ligações e com $valor $atomo temos ".$resLigacoes[$i]." ligações <br>";
-    $i++;
-}
-if($validador->validarLigacoes($resLigacoes)){
-    $reagenteBalanceado = true;
-    echo '<br>Balanceado<br><br>';
-}
-else{
-    $reagenteBalanceado = false;
-    echo '<br>Desbalanceado<br><br>';
-}
-$resLigacoes = array();
-$i = 0;
-foreach ($resultado_produto as $chave => $valor){
-    $atomo = $chave;
-    $ligacoes = $validador->validarAtomo($atomo);
-    $resLigacoes[$i] = $ligacoes*$valor;
-    echo "O atomo $atomo tem ".$ligacoes." ligações e com $valor $atomo temos ".$resLigacoes[$i]." ligações <br>";
-    $i++;
-}
-if($validador->validarLigacoes($resLigacoes)){
-    $produtoBalanceado = true;
-    echo '<br>Balanceado<br>';
-}
-else{
-    $produtoBalanceado = false;
-    echo '<br>Desbalanceado<br>';
-}
-
-if (array_values($resultado_reagente) == array_values($resultado_produto) and $reagenteBalanceado == true and $produtoBalanceado == true) {
+if (array_values($resultado_reagente) == array_values($resultado_produto)) {
     $novaUrl = limpar_get();
-    setcookie("vitoria", true, time() + 30,"/");
-    header("Location: ".$novaUrl."&status=vitoria");
+    setcookie("vitoria", true, time() + 30, "/");
+    header("Location: " . $novaUrl . "&status=vitoria");
     exit;
 } else {
     $novaUrl = limpar_get();
-    //se a equação e as ligações estão desabalanceadas
-    if(array_values($resultado_reagente) != array_values($resultado_produto) and $reagenteBalanceado == false and $produtoBalanceado == false) {
-        header("Location: ".$novaUrl."&status=derrota1");
-        exit;
-    }
-    if(array_values($resultado_reagente) != array_values($resultado_produto) and $reagenteBalanceado == true and $produtoBalanceado == false) {
-        header("Location: ".$novaUrl."&status=derrota2");
-        exit;
-    }
-    if(array_values($resultado_reagente) != array_values($resultado_produto) and $reagenteBalanceado == false and $produtoBalanceado == true) {
-        header("Location: ".$novaUrl."&status=derrota3");
-        exit;
-    }
-    if(array_values($resultado_reagente) != array_values($resultado_produto) and $reagenteBalanceado == true and $produtoBalanceado == true) {
-        header("Location: ".$novaUrl."&status=derrota4");
-        exit;
-    }
-    if(array_values($resultado_reagente) == array_values($resultado_produto) and $reagenteBalanceado == true and $produtoBalanceado == false) {
-        header("Location: ".$novaUrl."&status=derrota5");
-        exit;
-    }
-    if(array_values($resultado_reagente) == array_values($resultado_produto) and $reagenteBalanceado == false and $produtoBalanceado == true) {
-        header("Location: ".$novaUrl."&status=derrota6");
-        exit;
-    }
-    if(array_values($resultado_reagente) == array_values($resultado_produto) and $reagenteBalanceado == false and $produtoBalanceado == true) {
-        header("Location: ".$novaUrl."&status=derrota6");
-        exit;
-    }
+    //se a equação está desabalanceada
+    header("Location: " . $novaUrl . "&status=derrota");
+    exit;
 }
 ?>
