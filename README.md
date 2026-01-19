@@ -5,7 +5,7 @@
 - CSS
 - BOOTSTRAP
 - PHP
-- JAVASCRIPT 
+- JAVASCRIPT
 
-[!NOTE]
+
 > Caso deseja acessar as configurações de administrador, mude manualmente seu tipo de usuario para "A"
